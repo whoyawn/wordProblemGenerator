@@ -1,6 +1,4 @@
-# Project Name
-
-Informatics 151 - Word Problem Generator
+# Informatics 151 - Word Problem Generator
 
 ## About
 
