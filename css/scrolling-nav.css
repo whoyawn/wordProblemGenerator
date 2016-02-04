@@ -7,7 +7,6 @@
 body {
     width: 100%;
     height: 100%;
-    background-color: #f7ffe0;
 }
 
 html {
@@ -17,6 +16,24 @@ html {
 
 #banner{
   max-width: 50em;
+}
+
+.navbar{
+  background: #9f7e69;
+
+}
+.navbar-brand{
+  font-family: Lobster;
+  color: #ffeee2;
+}
+
+.navbar-toggle{
+  color: #ffeee2;
+}
+
+.page-scroll{
+  font-family: Lobster;
+  color: #ffeee2;
 }
 
 @media(min-width:767px) {
@@ -40,26 +57,26 @@ of those sections to manage the look and feel of the site. */
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #fff;
+    background: #f7ffe0;
 }
 
 .about-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #eee;
+    background: #bfcbc2;
 }
 
 .services-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #fff;
+    background:  #f7ffe0;
 }
 
 .contact-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #eee;
+    background: #bfcbc2;
 }

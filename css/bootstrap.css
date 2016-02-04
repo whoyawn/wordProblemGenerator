@@ -11,7 +11,6 @@ html {
 }
 body {
   margin: 0;
-  background-color: #f7ffe0;
 }
 article,
 aside,
@@ -4500,14 +4499,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #f8f8f8;
   border-color: #e7e7e7;
 }
-.navbar-default .navbar-brand {
+/*.navbar-default .navbar-brand {
   color: #777;
-}
-.navbar-default .navbar-brand:hover,
+}*/
+/*.navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #5e5e5e;
   background-color: transparent;
-}
+}*/
 .navbar-default .navbar-text {
   color: #777;
 }
