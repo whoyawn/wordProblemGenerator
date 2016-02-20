@@ -46,6 +46,7 @@ public class WPGServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	response.setContentType("text/html");
     	PrintWriter out = response.getWriter();
 //        Date date = new Date();
 //        QuizDriver drive = new QuizDriver();
@@ -54,21 +55,23 @@ public class WPGServlet extends HttpServlet {
     	
     	
     	String names = request.getParameter("names");
-		String items = request.getParameter("itmes");
+		String items = request.getParameter("items");
 		String numberOfQuestions = request.getParameter("numberOfQuestions");
 		String[] operation = request.getParameterValues("operation");
 		String range_min = request.getParameter("range_min");
 		String range_max = request.getParameter("range_max");
 		
-		out.println(HTML_START + "<h2>Hi There!</h2>Names=" + names + "<br/><h3>items= "+items +
-				"numberOfQuestions=" + numberOfQuestions  + "<br/>" + 
+		
+		out.println("<h2>Hi There!</h2>Names=" + names + "<br/><h3>items= "+items +
+				" numberOfQuestions=" + numberOfQuestions  + "<br/>" + 
 				"operation=" + operation[0] + operation[1] + operation[2] + operation[3] + "<br/>" + 
 				"range_min=" + range_min  + "<br/>" + 
 				"range_max=" + range_max  + "<br/>" + 
 				
 				
 				
-				"</h3>"+HTML_END);
+				"</h3>");
+		
     }
  
 }

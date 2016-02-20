@@ -86,12 +86,12 @@
 				</div>
 			</div>
 		</div>
-		<form action="WPGServlet" method="post">
+		<form onSubmit="return generateQuestions()">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-5 center-block" id="inputs">
 					<label for="namesInput">*Name (i.e. John, Krishna)</label>
-					<input type="text" style:="width:" class="form-control" id="namesInput" placeholder="Name 1, Name 2...">
+					<input type="text" name="names" style:="width:" class="form-control" id="namesInput" placeholder="Name 1, Name 2...">
 				</div>
 			</div>
 		</div>
@@ -99,7 +99,7 @@
 			<div class="row">
 				<div class="col-xs-5 center-block" id="inputs">
 					<label for="itemsInput">*Items (i.e. Batmobile, iPhone)</label>
-					<input type="text" class="form-control" id="itemsInput" placeholder="Items 1, Item 2...">
+					<input type="text" name="items" class="form-control" id="itemsInput" placeholder="Items 1, Item 2...">
 				</div>
 			</div>
 		</div>
@@ -131,11 +131,11 @@
 		<div class="form-inline">
 			<div class="form-group">
 				<label for="exampleInputName2">Min</label>
-				<input type="text" class="form-control" id="exampleInputName2" placeholder="1">
+				<input type="text" name="range_min" class="form-control" id="exampleInputName2" placeholder="1">
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail2">Max</label>
-				<input type="text" class="form-control" id="exampleInputEmail2" placeholder="5">
+				<input type="text" name="range_max" class="form-control" id="exampleInputEmail2" placeholder="5">
 			</div>
 		</div>
 		<div class="container" style="padding-top:20px">
@@ -165,7 +165,7 @@
 
 
 	<!-- Services Section -->
-	<!--section id="questions" class="services-section">
+	<section id="questions" class="services-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -176,23 +176,25 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-5 center-block" id="inputs">
-					<label for="questionOne">Question 1:</label>
-					<!-- These will actually be generated after data input, Q1 is here just as a visual. -->
-					<!--label for="questionOne">Tale disputando ex nec. Pri errem verterem eloquentiam ex, his libris meliore fastidii et, ne alienum lucilius consectetuer usu. Per eu minimum eleifend. Cum an summo putent inciderint. Eam te alienum assueverit, per nostrum appetere an. Vocibus
-						deleniti ea per, ea minim placerat per.</label>
-					<input type="text" style:="width:" class="form-control" id="questionOne" placeholder="Your Answer">
+					<div id="questions">
+						<label for="questionOne">Question 1:</label>
+						<These will actually be generated after data input, Q1 is here just as a visual. -->
+						<label for="questionOne">Tale disputando ex nec. Pri errem verterem eloquentiam ex, his libris meliore fastidii et, ne alienum lucilius consectetuer usu. Per eu minimum eleifend. Cum an summo putent inciderint. Eam te alienum assueverit, per nostrum appetere an. Vocibus
+							deleniti ea per, ea minim placerat per.</label>
+						<input type="text" style:="width:" class="form-control" id="questionOne" placeholder="Your Answer">
+					</div>
 				</div>
 			</div>
 		<!-- More questions should be generated here -->
-		<!--div-->
-		<!--div class="container" style="padding-top: 20px">
+		<div>
+		<div class="container" style="padding-top: 20px">
 			<div class="row">
 				<div class="col-xs-5 center-block" id="inputs">
 					<button class="btn btn-success" type="checkanswers">Check Answers</button>
 				</div>
 			</div>
 		</div>
-	</section-->
+	</section>
 
 
 	<!-- Contact Section -->
@@ -219,6 +221,8 @@
 	<script src="js/jquery.easing.min.js">
 	</script>
 	<script src="js/scrolling-nav.js">
+	</script>
+	<script src="js/server.js">
 	</script>
 	<!-- TODO -->
 
