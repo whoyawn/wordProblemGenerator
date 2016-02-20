@@ -86,6 +86,7 @@
 				</div>
 			</div>
 		</div>
+		<form action="FirstServlet" method="post">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-5 center-block" id="inputs">
@@ -111,13 +112,13 @@
 		</div>
 		<div class="checkbox">
 			<label class="checkbox-inline">
-				<input type="checkbox" id="operations">Addition</label>
+				<input type="checkbox" name ="operation" value="ADD"	id="operations">Addition</label>
 			<label class="checkbox-inline">
-				<input type="checkbox" id="operations">Subtraction</label>
+				<input type="checkbox" name ="operation" value="SUB" id="operations">Subtraction</label>
 			<label class="checkbox-inline">
-				<input type="checkbox" id="operations">Multiplication</label>
+				<input type="checkbox" name ="operation" value="MULT" id="operations">Multiplication</label>
 			<label class="checkbox-inline">
-				<input type="checkbox" id="operations">Division</label>
+				<input type="checkbox" name ="operation" value="DIV" id="operations">Division</label>
 		</div>
 		<div class="container" style="padding-top:20px">
 			<div class="row">
@@ -127,7 +128,7 @@
 				</div>
 			</div>
 		</div>
-		<form class="form-inline">
+		<div class="form-inline">
 			<div class="form-group">
 				<label for="exampleInputName2">Min</label>
 				<input type="text" class="form-control" id="exampleInputName2" placeholder="1">
@@ -136,7 +137,7 @@
 				<label for="exampleInputEmail2">Max</label>
 				<input type="text" class="form-control" id="exampleInputEmail2" placeholder="5">
 			</div>
-		</form>
+		</div>
 		<div class="container" style="padding-top:20px">
 			<div class="row">
 				<div class="col-xs-5 center-block" id="inputs">
@@ -144,12 +145,12 @@
 				</div>
 			</div>
 		</div>
-		<select class="form-control" style="width: 5%;display: inline-block">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
+		<select class="form-control" name="numberOfQuestions" style="width: 5%;display: inline-block">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
 		</select>
 		<div class="container" style="padding-top: 20px">
 			<div class="row">
@@ -159,6 +160,7 @@
 				</div>
 			</div>
 		</div>
+	</form>
 	</section>
 
 
