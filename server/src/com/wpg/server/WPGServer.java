@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.wpg.logic.QuizDriver;
  
 /**
- * Servlet implementation class WPGServlet
+ * Servlet implementation class WPGServer
  * Luke and Arameh
  */
-@WebServlet(description = "WPGServlet", urlPatterns = { "/WPGServlet" , "/WPGServlet.do"}, initParams = {@WebInitParam(name="id",value="1"),@WebInitParam(name="name",value="pankaj")})
-public class WPGServlet extends HttpServlet {
+@WebServlet(description = "WPGServer", urlPatterns = { "/WPGServer" , "/WPGServer.do"}, initParams = {@WebInitParam(name="id",value="1"),@WebInitParam(name="name",value="pankaj")})
+public class WPGServer extends HttpServlet {
     private static final long serialVersionUID = 1L;
     public static final String HTML_START="<html><body>";
     public static final String HTML_END="</body></html>";
@@ -26,7 +26,7 @@ public class WPGServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WPGServlet() {
+    public WPGServer() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,31 +46,45 @@ public class WPGServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("HERE!!!!!!!");
     	response.setContentType("text/html");
     	PrintWriter out = response.getWriter();
 //        Date date = new Date();
 //        QuizDriver drive = new QuizDriver();
 //        String text = drive.run();
 //        out.println(HTML_START + "<h2>Hi There!</h2>" + text + "<br/><h3>Date="+date +"</h3>"+HTML_END);
-    	
+//    	out.println("<h2>Hi There!</h2>");
     	
     	String names = request.getParameter("names");
 		String items = request.getParameter("items");
 		String numberOfQuestions = request.getParameter("numberOfQuestions");
-		String[] operation = request.getParameterValues("operation");
+		String[] operations = request.getParameterValues("operations[]");
 		String range_min = request.getParameter("range_min");
 		String range_max = request.getParameter("range_max");
 		
+		String ops = "";
+		for(String s : operations){
+			ops += s;
+		}
 		
-		out.println("<h2>Hi There!</h2>Names=" + names + "<br/><h3>items= "+items +
-				" numberOfQuestions=" + numberOfQuestions  + "<br/>" + 
-				"operation=" + operation[0] + operation[1] + operation[2] + operation[3] + "<br/>" + 
-				"range_min=" + range_min  + "<br/>" + 
-				"range_max=" + range_max  + "<br/>" + 
-				
-				
-				
-				"</h3>");
+		
+//		System.out.println("Names=" + names); 
+//		System.out.println("items=" + items); 
+//		System.out.println("numberOfQuestions=" + numberOfQuestions ); 
+//
+//		System.out.println("range_min=" + range_min); 
+//		System.out.println("range_max=" + range_max);
+			
+		
+		out.println("<h2>Hi There!</h2><br/>"
+				+ "<h4>Names=" + names + "<br/>" 
+				+ "items= " + items +"<br/>" + 
+				" numberOfQuestions=" + numberOfQuestions  + "<br/>" 
+				+ "operations=" + ops + "<br/>" 
+				+ "range_min=" + range_min  + "<br/>" 
+				+ "range_max=" + range_max  + "<br/>" + 
+			
+				"</h4>");
 		
     }
  

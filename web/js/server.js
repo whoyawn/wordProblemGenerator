@@ -1,12 +1,27 @@
 function generateQuestions(){
-	$("#questions").append("HI");
-//	$.ajax(
-//	{
-//	  url:'WPGServlet', 
-//	  type:'post',
-//	  success:function(response)
-//	  {
-//	     $('#questions').append(response);
-//	  }
-//	});
+	var names = $('#names').val();
+	var items = $('#items').val();
+	var operations = [];
+    $('#operations :checked').each(function() {
+    	operations.push($(this).val());
+    });
+    
+    var range_min = $('#range_min').val();
+	var range_max = $('#range_max').val();
+	var numberOfQuestions = $('#numberOfQuestions').val();
+	console.log("here = " + operations);
+	
+	$.ajax(
+	{
+	  url:'WPGServer', 
+	  type:'post',
+	  data: {"names": names, "items": items,
+		    operations:operations, 
+		    "range_min": range_min, "range_max": range_max,
+		    "numberOfQuestions": numberOfQuestions},
+	  success:function(response)
+	  {
+	     $('#genQuestions').append(response);
+	  }
+	});
 }

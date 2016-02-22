@@ -86,12 +86,12 @@
 				</div>
 			</div>
 		</div>
-		<form onSubmit="return generateQuestions()">
+		<form onsubmit="return false">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-5 center-block" id="inputs">
 					<label for="namesInput">*Name (i.e. John, Krishna)</label>
-					<input type="text" name="names" style:="width:" class="form-control" id="namesInput" placeholder="Name 1, Name 2...">
+					<input type="text" id="names" style:="width:" class="form-control" id="namesInput" placeholder="Name 1, Name 2...">
 				</div>
 			</div>
 		</div>
@@ -99,7 +99,7 @@
 			<div class="row">
 				<div class="col-xs-5 center-block" id="inputs">
 					<label for="itemsInput">*Items (i.e. Batmobile, iPhone)</label>
-					<input type="text" name="items" class="form-control" id="itemsInput" placeholder="Items 1, Item 2...">
+					<input type="text" id="items" class="form-control" id="itemsInput" placeholder="Items 1, Item 2...">
 				</div>
 			</div>
 		</div>
@@ -110,15 +110,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="checkbox">
+		<div id="operations" class="checkbox">
 			<label class="checkbox-inline">
-				<input type="checkbox" name ="operation" value="ADD"	id="operations">Addition</label>
+				<input type="checkbox" value="ADD"	>Addition</label>
 			<label class="checkbox-inline">
-				<input type="checkbox" name ="operation" value="SUB" id="operations">Subtraction</label>
+				<input type="checkbox"  value="SUB" >Subtraction</label>
 			<label class="checkbox-inline">
-				<input type="checkbox" name ="operation" value="MULT" id="operations">Multiplication</label>
+				<input type="checkbox" value="MULT" >Multiplication</label>
 			<label class="checkbox-inline">
-				<input type="checkbox" name ="operation" value="DIV" id="operations">Division</label>
+				<input type="checkbox" value="DIV">Division</label>
 		</div>
 		<div class="container" style="padding-top:20px">
 			<div class="row">
@@ -131,11 +131,11 @@
 		<div class="form-inline">
 			<div class="form-group">
 				<label for="exampleInputName2">Min</label>
-				<input type="text" name="range_min" class="form-control" id="exampleInputName2" placeholder="1">
+				<input type="text" id="range_min" class="form-control" id="exampleInputName2" placeholder="1">
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail2">Max</label>
-				<input type="text" name="range_max" class="form-control" id="exampleInputEmail2" placeholder="5">
+				<input type="text" id="range_max" class="form-control" id="exampleInputEmail2" placeholder="5">
 			</div>
 		</div>
 		<div class="container" style="padding-top:20px">
@@ -145,7 +145,7 @@
 				</div>
 			</div>
 		</div>
-		<select class="form-control" name="numberOfQuestions" style="width: 5%;display: inline-block">
+		<select class="form-control" id="numberOfQuestions" style="width: 5%;display: inline-block">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -156,7 +156,7 @@
 			<div class="row">
 				<div class="col-xs-5 center-block" id="inputs">
 					<button class="btn btn-danger" type="reset">Reset</button>
-					<button class="btn btn-success" type="submit">Submit</button>
+					<button class="btn btn-success" onclick="generateQuestions()">Submit</button>
 				</div>
 			</div>
 		</div>
@@ -176,7 +176,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-5 center-block" id="inputs">
-					<div id="questions">
+					<div id="genQuestions">
 						<label for="questionOne">Question 1:</label>
 						<These will actually be generated after data input, Q1 is here just as a visual. -->
 						<label for="questionOne">Tale disputando ex nec. Pri errem verterem eloquentiam ex, his libris meliore fastidii et, ne alienum lucilius consectetuer usu. Per eu minimum eleifend. Cum an summo putent inciderint. Eam te alienum assueverit, per nostrum appetere an. Vocibus
