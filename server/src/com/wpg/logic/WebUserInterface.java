@@ -8,41 +8,46 @@ import java.util.List;
  * Hard coded (The servlet will provide the infomration
  */
 public class WebUserInterface implements UserInput {
+	
+	private WebParameters webParameters;
+	
+	
+	public WebUserInterface(WebParameters webParameters){
+		this.webParameters = webParameters;
+	}
 
 
     @Override
     public List<Person> gatherImportantPeople() {
         List<Person> peopleList = new ArrayList<>();
-        Person person1 = new Person();
-        person1.setName("Luke");
-        person1.setGender("M");
-        Person person2 = new Person();
-        person2.setName("Rose");
-        person2.setGender("F");
-
-        peopleList.add(person1);
-        peopleList.add(person2);
+        String[] splitNames = webParameters.getNames().split(", ");
+        for(String s : splitNames){
+        	Person p = new Person();
+        	p.setName(s);
+        	p.setGender("M");
+        	peopleList.add(p);
+        }
+        
         return peopleList;
     }
 
     @Override
     public List<Item> gatherImportantItems() {
         List<Item> itemList = new ArrayList<>();
-        Item item1 = new Item();
-        item1.setName("Cats");
-
-        Item item2 = new Item();
-        item2.setName("Dogs");
-
-        itemList.add(item1);
-        itemList.add(item2);
+        String[] splitItems = webParameters.getItems().split(", ");
+        for(String s : splitItems){
+        	Item i = new Item();
+        	i.setName(s);
+        	itemList.add(i);
+        }
+        
         return itemList;
     }
 
     @Override
-    public List<String> gatherOperationsList(List<String> opList) {
+    public List<String> gatherOperationsList() {
         List<String> operationsList = new ArrayList<>();
-        for(String op : opList){
+        for(String op : webParameters.getOperations()){
             operationsList.add(op);
         }
         return operationsList;
@@ -50,17 +55,16 @@ public class WebUserInterface implements UserInput {
 
     @Override
     public int gatherProblemNum() {
-
-        return 10;
+        return webParameters.getNumberOfQuestions();
     }
 
     @Override
     public int gatherTopRange() {
-        return 10;
+        return webParameters.getRangeMax();
     }
 
     @Override
     public int gatherBottomRange() {
-        return 1;
+        return webParameters.getRangeMin();
     }
 }

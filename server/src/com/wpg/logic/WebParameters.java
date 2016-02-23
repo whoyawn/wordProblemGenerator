@@ -2,17 +2,16 @@ package com.wpg.logic;
 
 import java.util.Arrays;
 
-public class WebQuestionParameters {
+public class WebParameters {
 	
 	String names;
 	String items;
 	int numberOfQuestions;
-
 	String[] operations;
 	int rangeMin;
 	int rangeMax;
 	
-	public WebQuestionParameters(String names, String items, String numberOfQuestions, 
+	public WebParameters(String names, String items, String numberOfQuestions, 
 			String[] operations, String rangeMin, String rangeMax){
 		setNames(names);
 		setItems(items);

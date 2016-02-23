@@ -10,7 +10,7 @@ public interface UserInput {
 
     List<Person> gatherImportantPeople();
     List<Item> gatherImportantItems();
-    List<String> gatherOperationsList(List<String> input);
+    List<String> gatherOperationsList();
     int gatherProblemNum();
     int gatherTopRange();
     int gatherBottomRange();

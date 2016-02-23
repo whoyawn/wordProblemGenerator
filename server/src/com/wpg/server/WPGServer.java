@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wpg.logic.QuizDriver;
-import com.wpg.logic.WebQuestionParameters;
+import com.wpg.logic.WebParameters;
  
 /**
  * Servlet implementation class WPGServer
@@ -38,23 +38,17 @@ public class WPGServer extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	PrintWriter out = response.getWriter();
         Date date = new Date();
-        QuizDriver drive = new QuizDriver();
-        String text = drive.run();
-        out.println(HTML_START + "<h2>Hi There!</h2>" + text + "<br/><h3>Date="+date +"</h3>"+HTML_END);
+        String text = "test get request";
+        out.println(HTML_START + "<h2>Hi There!</h2>" + text + "<br/><h3>Date=" + date +"</h3>"+HTML_END);
     }
  
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("HERE!!!!!!!");
     	response.setContentType("text/html");
     	PrintWriter out = response.getWriter();
-//        Date date = new Date();
-//        QuizDriver drive = new QuizDriver();
-//        String text = drive.run();
-//        out.println(HTML_START + "<h2>Hi There!</h2>" + text + "<br/><h3>Date="+date +"</h3>"+HTML_END);
-//    	out.println("<h2>Hi There!</h2>");
+
     	
     	String names = request.getParameter("names");
 		String items = request.getParameter("items");
@@ -63,28 +57,26 @@ public class WPGServer extends HttpServlet {
 		String range_min = request.getParameter("range_min");
 		String range_max = request.getParameter("range_max");
 		
-		WebQuestionParameters webParam = new WebQuestionParameters(names, items, numberOfQuestions,
+		WebParameters webParam = new WebParameters(names, items, numberOfQuestions,
 				operations, range_min, range_max);
 		System.out.println(webParam.toString());
 		
+		QuizDriver quiz = new QuizDriver(webParam);
+		String text = quiz.run();
 		
-//		System.out.println("Names=" + names); 
-//		System.out.println("items=" + items); 
-//		System.out.println("numberOfQuestions=" + numberOfQuestions ); 
-//
-//		System.out.println("range_min=" + range_min); 
-//		System.out.println("range_max=" + range_max);
-			
+		out.println(text);
 		
-		out.println("<h2>Hi There!</h2><br/>"
-				+ "<h4>Names=" + names + "<br/>" 
-				+ "items= " + items +"<br/>" + 
-				" numberOfQuestions=" + numberOfQuestions  + "<br/>" 
-				+ "operations=" + operations + "<br/>" 
-				+ "range_min=" + range_min  + "<br/>" 
-				+ "range_max=" + range_max  + "<br/>" + 
-			
-				"</h4>");
+		
+		
+//		out.println("<h2>Hi There!</h2><br/>"
+//				+ "<h4>Names=" + names + "<br/>" 
+//				+ "items= " + items +"<br/>" + 
+//				" numberOfQuestions=" + numberOfQuestions  + "<br/>" 
+//				+ "operations=" + operations + "<br/>" 
+//				+ "range_min=" + range_min  + "<br/>" 
+//				+ "range_max=" + range_max  + "<br/>" + 
+//			
+//				"</h4>");
 		
     }
  

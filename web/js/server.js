@@ -9,7 +9,6 @@ function generateQuestions(){
     var range_min = $('#range_min').val();
 	var range_max = $('#range_max').val();
 	var numberOfQuestions = $('#numberOfQuestions').val();
-	console.log("here = " + operations);
 	
 	$.ajax(
 	{

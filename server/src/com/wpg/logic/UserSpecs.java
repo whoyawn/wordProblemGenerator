@@ -15,31 +15,45 @@ public class UserSpecs {
     private int problemNum;
     private int bottomRange;
     private int topRange;
+    private static WebParameters webParameters;
 
-    private UserSpecs(){}
 
-    public static UserSpecs getInstance(){
+
+	@Override
+	public String toString() {
+		return "UserSpecs [importantPeople=" + importantPeople + ", importantItems=" + importantItems
+				+ ", operationList=" + operationList + ", problemNum=" + problemNum + ", bottomRange=" + bottomRange
+				+ ", topRange=" + topRange + "]";
+	}
+
+	private UserSpecs(){}
+
+    public static UserSpecs getInstance(WebParameters webParams){
         if (userSpecs == null){
             userSpecs = new UserSpecs();
+            webParameters = webParams;
         }
         return userSpecs;
     }
 
     public void gatherChildInfo(){
-        UserInput userInput = new WebUserInterface();
+        UserInput userInput = new WebUserInterface(webParameters);
         setImportantPeople(userInput.gatherImportantPeople());
         setImportantItems(userInput.gatherImportantItems());
     }
 
-    public void gatherProblemInfo(List<String> opList){
-        UserInput userInput = new WebUserInterface();
-        setOperationList(userInput.gatherOperationsList(opList));
-
+    public void gatherProblemInfo(){
+        UserInput userInput = new WebUserInterface(webParameters);
+        setOperationList(userInput.gatherOperationsList());
         setProblemNum(userInput.gatherProblemNum());
         setBottomRange(userInput.gatherBottomRange());
         setTopRange(userInput.gatherTopRange());
 
     }
+    
+    public WebParameters getWebParameters() {
+		return webParameters;
+	}
 
     public List<Person> getImportantPeople() {
         return importantPeople;

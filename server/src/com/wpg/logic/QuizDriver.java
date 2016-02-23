@@ -12,20 +12,34 @@ public class QuizDriver {
 
     private UserSpecs userSpecs;
     private List<Worksheet> worksheetList;
-    private List<String> operationsList = Arrays.asList("ADD", "SUB", "MULT", "DIV");
+    private WebParameters webParameters;
+    
+
+
+	public QuizDriver(WebParameters webParameters){
+    	setWebParameters(webParameters);
+    }
 
     public String run(){
         System.out.println("Welcome to Word Problem Generator (Server)");
         makeUserSpecs();
+        System.out.println(userSpecs.toString());
         generateWorksheet(userSpecs);
         return saveProblems(worksheetList.get(0));
 
     }
+    
+    public WebParameters getWebParameters() {
+		return webParameters;
+	}
 
+	public void setWebParameters(WebParameters webParameters) {
+		this.webParameters = webParameters;
+	}
     private void makeUserSpecs(){
-        userSpecs = UserSpecs.getInstance();
+        userSpecs = UserSpecs.getInstance(webParameters);
         userSpecs.gatherChildInfo();
-        userSpecs.gatherProblemInfo(operationsList);
+        userSpecs.gatherProblemInfo();
     }
 
 
@@ -49,7 +63,7 @@ public class QuizDriver {
     	String text = "";
         for(Problem p : worksheet.problemList) {
             count++;
-            text += "<h3>" + count + ". ANSWER:" + p.answer + " QUESTION:" + p.problemText + "</h3>";
+            text += "<h4>" + count + ". ANSWER:" + p.answer + " QUESTION:" + p.problemText + "</h4><br/>";
         }
         return text;
     }
