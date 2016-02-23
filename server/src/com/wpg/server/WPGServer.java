@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wpg.logic.QuizDriver;
+import com.wpg.logic.WebQuestionParameters;
  
 /**
  * Servlet implementation class WPGServer
@@ -62,10 +63,9 @@ public class WPGServer extends HttpServlet {
 		String range_min = request.getParameter("range_min");
 		String range_max = request.getParameter("range_max");
 		
-		String ops = "";
-		for(String s : operations){
-			ops += s;
-		}
+		WebQuestionParameters webParam = new WebQuestionParameters(names, items, numberOfQuestions,
+				operations, range_min, range_max);
+		System.out.println(webParam.toString());
 		
 		
 //		System.out.println("Names=" + names); 
@@ -80,7 +80,7 @@ public class WPGServer extends HttpServlet {
 				+ "<h4>Names=" + names + "<br/>" 
 				+ "items= " + items +"<br/>" + 
 				" numberOfQuestions=" + numberOfQuestions  + "<br/>" 
-				+ "operations=" + ops + "<br/>" 
+				+ "operations=" + operations + "<br/>" 
 				+ "range_min=" + range_min  + "<br/>" 
 				+ "range_max=" + range_max  + "<br/>" + 
 			
