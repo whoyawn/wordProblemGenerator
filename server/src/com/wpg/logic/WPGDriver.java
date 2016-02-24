@@ -14,8 +14,6 @@ public class WPGDriver {
     private List<Worksheet> worksheetList;
     private WebParameters webParameters;
     
-
-
 	public WPGDriver(WebParameters webParameters){
     	setWebParameters(webParameters);
     }
