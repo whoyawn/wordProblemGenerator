@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Luke on 2/4/2016.
  * This contains the QuizDriver class
  */
-public class QuizDriver {
+public class WPGDriver {
 
     private UserSpecs userSpecs;
     private List<Worksheet> worksheetList;
@@ -16,7 +16,7 @@ public class QuizDriver {
     
 
 
-	public QuizDriver(WebParameters webParameters){
+	public WPGDriver(WebParameters webParameters){
     	setWebParameters(webParameters);
     }
 

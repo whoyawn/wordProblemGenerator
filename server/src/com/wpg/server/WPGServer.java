@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wpg.logic.QuizDriver;
+import com.wpg.logic.WPGDriver;
 import com.wpg.logic.WebParameters;
  
 /**
@@ -61,7 +61,7 @@ public class WPGServer extends HttpServlet {
 				operations, range_min, range_max);
 //		System.out.println(webParam.toString());
 		
-		QuizDriver quiz = new QuizDriver(webParam);
+		WPGDriver quiz = new WPGDriver(webParam);
 		String text = quiz.run();
 		
 		out.println(text);
