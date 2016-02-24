@@ -2,7 +2,6 @@ package com.wpg.server;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
  
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -36,10 +35,15 @@ public class WPGServer extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	response.setContentType("text/html");
     	PrintWriter out = response.getWriter();
-        Date date = new Date();
-        String text = "test get request";
-        out.println(HTML_START + "<h2>Hi There!</h2>" + text + "<br/><h3>Date=" + date +"</h3>"+HTML_END);
+    
+		String[] answers = request.getParameterValues("answers[]");
+		
+		
+		
+		
+//		out.println(result);
     }
  
     /**
@@ -59,24 +63,11 @@ public class WPGServer extends HttpServlet {
 		
 		WebParameters webParam = new WebParameters(names, items, numberOfQuestions,
 				operations, range_min, range_max);
-//		System.out.println(webParam.toString());
 		
 		WPGDriver quiz = new WPGDriver(webParam);
 		String text = quiz.run();
 		
 		out.println(text);
-		
-		
-		
-//		out.println("<h2>Hi There!</h2><br/>"
-//				+ "<h4>Names=" + names + "<br/>" 
-//				+ "items= " + items +"<br/>" + 
-//				" numberOfQuestions=" + numberOfQuestions  + "<br/>" 
-//				+ "operations=" + operations + "<br/>" 
-//				+ "range_min=" + range_min  + "<br/>" 
-//				+ "range_max=" + range_max  + "<br/>" + 
-//			
-//				"</h4>");
 		
     }
  

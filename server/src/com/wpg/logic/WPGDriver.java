@@ -1,7 +1,6 @@
 package com.wpg.logic;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,9 +18,7 @@ public class WPGDriver {
     }
 
     public String run(){
-//        System.out.println("Welcome to Word Problem Generator (Server)");
         makeUserSpecs();
-//        System.out.println(userSpecs.toString());
         generateWorksheet(userSpecs);
         saveQuestions(worksheetList.get(0));
         return genHTMLQuestions(worksheetList.get(0));
@@ -56,18 +53,12 @@ public class WPGDriver {
     		answers.add(p.answer.toString());
     	}
 		FileHandling.storeInTextFile(answers, "answers.txt");
-		// just checking if success
-//		ArrayList<String> fileAnswers = FileHandling.readFromFile("answers.txt");
-//		for(String s : fileAnswers){
-//			System.out.println(s);
-//		}
+
 		
 	}
 
 
     private String genHTMLQuestions(Worksheet worksheet){
-//        SaveProblem save = new SaveProblem(worksheet);
-//        save.saveProblemsToTextFile();
     	int count = 0;
     	String text = "";
         for(Problem p : worksheet.problemList) {

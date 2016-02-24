@@ -24,3 +24,23 @@ function generateQuestions(){
 	  }
 	});
 }
+
+function checkAnswers(){
+	
+	var answers = [];
+	var numberOfQuestions = $('#numberOfQuestions').val();
+	for (i = 1; i <= numberOfQuestions; i++) { 
+	    answers.push($('#question' + i).val());
+	}
+	
+	$.ajax(
+	{
+	  url:'WPGServer', 
+	  type:'get',
+	  data: {answers:answers},
+	  success:function(response)
+	  {
+	     $('#genResults').append(response);
+	  }
+	});
+}
