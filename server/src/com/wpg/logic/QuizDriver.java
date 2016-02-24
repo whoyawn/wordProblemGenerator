@@ -21,15 +21,17 @@ public class QuizDriver {
     }
 
     public String run(){
-        System.out.println("Welcome to Word Problem Generator (Server)");
+//        System.out.println("Welcome to Word Problem Generator (Server)");
         makeUserSpecs();
-        System.out.println(userSpecs.toString());
+//        System.out.println(userSpecs.toString());
         generateWorksheet(userSpecs);
+        saveQuestions(worksheetList.get(0));
         return genHTMLQuestions(worksheetList.get(0));
 
     }
     
-    public WebParameters getWebParameters() {
+
+	public WebParameters getWebParameters() {
 		return webParameters;
 	}
 
@@ -50,11 +52,20 @@ public class QuizDriver {
         worksheetList.add(worksheet);
 
     }
+    private void saveQuestions(Worksheet worksheet) {
+    	ArrayList<String> answers = new ArrayList<>();
+    	for(Problem p : worksheet.problemList){
+    		answers.add(p.answer.toString());
+    	}
+		FileHandling.storeInTextFile(answers, "answers.txt");
+		// just checking if success
+//		ArrayList<String> fileAnswers = FileHandling.readFromFile("answers.txt");
+//		for(String s : fileAnswers){
+//			System.out.println(s);
+//		}
+		
+	}
 
-    private void administerQuiz(Worksheet worksheet){
-        worksheet.startQuizUI();
-        worksheet.gradeWorksheet();
-    }
 
     private String genHTMLQuestions(Worksheet worksheet){
 //        SaveProblem save = new SaveProblem(worksheet);

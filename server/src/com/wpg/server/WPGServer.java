@@ -59,7 +59,7 @@ public class WPGServer extends HttpServlet {
 		
 		WebParameters webParam = new WebParameters(names, items, numberOfQuestions,
 				operations, range_min, range_max);
-		System.out.println(webParam.toString());
+//		System.out.println(webParam.toString());
 		
 		QuizDriver quiz = new QuizDriver(webParam);
 		String text = quiz.run();

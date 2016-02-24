@@ -176,20 +176,19 @@
 			</div>
 		</div>
 		<div class="container">
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-lg-6 col-lg-offset-3">
 					<label for="questionOne">Question 1:</label>
-					<!-- These will actually be generated after data input, Q1 is here just as a visual. -->
 					<label for="questionOne">Tale disputando ex nec. Pri errem verterem eloquentiam ex, his libris meliore fastidii et, ne alienum lucilius consectetuer usu. Per eu minimum eleifend. Cum an summo putent inciderint. Eam te alienum assueverit, per nostrum appetere an. Vocibus
 						deleniti ea per, ea minim placerat per.</label>
 					<input type="text" style:="width:" class="form-control" id="questionOne" placeholder="Your Answer">
 				</div>
-			</div>
+			</div> -->
 			<div id="genQuestions"></div>
 		</div>
-		
 
-		
+
+
 		<div class="container" style="padding-top: 20px">
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3" id="inputs">
@@ -211,6 +210,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 col-lg-offset-4" id="results">
+					<div id="genResults"></div>
 					<h2>You scored 95%</h2>
 					<label for="resultOne" style="color:green">Question 1: correct</label></br>
 					<label for="resultTwo" style="color:red">Question 2: incorrect</label></br>
@@ -221,7 +221,7 @@
 		<div class="container" style="padding-top: 20px">
 			<div class="row">
 				<div class="col-lg-5 col-lg-offset-5" id="inputs">
-					<button class="btn btn-success" type="startover">Start Over</button>
+					<button class="btn btn-success" onClick="history.go(0)" type="startover">Start Over</button>
 				</div>
 			</div>
 		</div>
