@@ -1,8 +1,10 @@
 package com.wpg.logic;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,16 +13,16 @@ public class FileHandling {
 		public static void storeInTextFile(ArrayList<String> storeList, String fileName)
 		{
 			/* ********** Writhing in a file ********** */
-			
-			PrintWriter out = null;
+			BufferedWriter out = null;
 			try 
 			{
-					out = new PrintWriter(fileName);
+				    FileWriter fstream = new FileWriter(fileName, false); //true tells to append data.
+					out = new BufferedWriter(fstream);
 					
 					for(String s : storeList)
 					{	
 						//Please change the "\n" to any token that you are comfortable with.
-						out.format(s + "\n");
+						out.write(s + "\n");
 					}
 			} 
 			catch (Exception e) 
@@ -29,8 +31,13 @@ public class FileHandling {
 			} 
 			finally 
 			{
-				if (out != null) 
-					out.close();
+				if (out != null)
+					try {
+						out.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 			}
 		}
 		

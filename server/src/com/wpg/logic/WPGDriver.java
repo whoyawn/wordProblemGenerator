@@ -65,13 +65,12 @@ public class WPGDriver {
             count++;
             String genQuestion = "<div class='row'>\n" +
 			"<div class='col-lg-6 col-lg-offset-3' id='inputs'>\n" + 
-				"<label for=question" + count + ">Question" + count + ":</label>\n" +
+				"<label for=question" + count + ">Question " + count + ":</label>\n" +
 				"<label for=question" + count + ">" + p.problemText + "</label>\n" +
 				"<input type='text' style:='width:' class='form-control' id='question" + count + "' placeholder='Your Answer'>\n" +
 			"</div>\n" +
 		"</div>\n";
             text += genQuestion;
-//            text += "<h4>" + count + ". ANSWER:" + p.answer + " QUESTION:" + p.problemText + "</h4><br/>";
         }
         return text;
     }

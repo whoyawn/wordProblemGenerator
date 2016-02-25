@@ -21,6 +21,8 @@ function generateQuestions(){
 	  success:function(response)
 	  {
 	     $('#genQuestions').append(response);
+	     $('html, body').stop().animate({
+	    	 scrollTop: $("#questions").offset().top}, 1500, 'easeInOutExpo');
 	  }
 	});
 }
@@ -41,6 +43,8 @@ function checkAnswers(){
 	  success:function(response)
 	  {
 	     $('#genResults').append(response);
+	     $('html, body').stop().animate({
+	    	 scrollTop: $("#result").offset().top}, 1500, 'easeInOutExpo');
 	  }
 	});
 }

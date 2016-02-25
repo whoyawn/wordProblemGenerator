@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wpg.logic.CheckAnswers;
 import com.wpg.logic.WPGDriver;
 import com.wpg.logic.WebParameters;
  
@@ -40,10 +41,9 @@ public class WPGServer extends HttpServlet {
     
 		String[] answers = request.getParameterValues("answers[]");
 		
+		CheckAnswers check = new CheckAnswers(answers);
 		
-		
-		
-//		out.println(result);
+		out.println(check.runCheck());
     }
  
     /**
