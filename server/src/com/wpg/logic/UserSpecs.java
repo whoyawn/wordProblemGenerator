@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class UserSpecs {
 
-    private static UserSpecs userSpecs;
+
     private List<Person> importantPeople;
     private List<Item> importantItems;
     private List<String> operationList;
@@ -26,15 +26,10 @@ public class UserSpecs {
 				+ ", topRange=" + topRange + "]";
 	}
 
-	private UserSpecs(){}
+	public UserSpecs(WebParameters webParams){
+		this.webParameters = webParams;
+	}
 
-    public static UserSpecs getInstance(WebParameters webParams){
-        if (userSpecs == null){
-            userSpecs = new UserSpecs();
-            webParameters = webParams;
-        }
-        return userSpecs;
-    }
 
     public void gatherChildInfo(){
         UserInput userInput = new WebUserInterface(webParameters);

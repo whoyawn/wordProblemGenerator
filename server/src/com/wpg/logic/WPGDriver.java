@@ -1,7 +1,6 @@
 package com.wpg.logic;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Luke on 2/4/2016.
@@ -10,7 +9,6 @@ import java.util.List;
 public class WPGDriver {
 
     private UserSpecs userSpecs;
-    private List<Worksheet> worksheetList;
     private WebParameters webParameters;
     
 	public WPGDriver(WebParameters webParameters){
@@ -19,9 +17,9 @@ public class WPGDriver {
 
     public String run(){
         makeUserSpecs();
-        generateWorksheet(userSpecs);
-        saveQuestions(worksheetList.get(0));
-        return genHTMLQuestions(worksheetList.get(0));
+        Worksheet worksheetFinal = generateWorksheet(userSpecs);
+        saveQuestions(worksheetFinal);
+        return genHTMLQuestions(worksheetFinal);
 
     }
     
@@ -33,18 +31,17 @@ public class WPGDriver {
 	public void setWebParameters(WebParameters webParameters) {
 		this.webParameters = webParameters;
 	}
+	
     private void makeUserSpecs(){
-        userSpecs = UserSpecs.getInstance(webParameters);
+        userSpecs = new UserSpecs(webParameters);
         userSpecs.gatherChildInfo();
         userSpecs.gatherProblemInfo();
     }
 
-
-    private void generateWorksheet(UserSpecs specs){
+    private Worksheet generateWorksheet(UserSpecs specs){
         Worksheet worksheet = new Worksheet();
         worksheet.generateProblemList(specs);
-        worksheetList = new ArrayList<>();
-        worksheetList.add(worksheet);
+        return worksheet;
 
     }
     private void saveQuestions(Worksheet worksheet) {
@@ -53,10 +50,8 @@ public class WPGDriver {
     		answers.add(p.answer.toString());
     	}
 		FileHandling.storeInTextFile(answers, "answers.txt");
-
 		
 	}
-
 
     private String genHTMLQuestions(Worksheet worksheet){
     	int count = 0;
